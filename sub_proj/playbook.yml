@@ -1,0 +1,29 @@
+---
+- name: Install and Configure nginx in VM
+  hosts: all
+  become: yes
+  tasks:
+  - name: Update apt cache (for ubuntu /Debian)
+    apt:
+      update_cache: yes
+    when: ansible_os_family == "Debian"
+
+  - name: Install nginx
+    apt:
+      name: nginx
+      state: present
+    when: ansible_os_family == "Debian"
+
+  - name: Start and enable nginx service
+    service:
+      name: nginx
+      state: started
+      enabled: yes
+
+  - name: copy index.html file
+    copy:
+      src: ./index.html
+      dest: /var/www/html/
+      owner: ubuntu
+      group: ubuntu
+      mode: '0644'
