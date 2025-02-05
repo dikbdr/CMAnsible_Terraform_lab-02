@@ -10,8 +10,8 @@
 # creating provide block
 provider "aws" {
   region  = "us-west-2"
-   access_key = "AKIA4SF5S4GMNWUMGISS" # keys.my-access-key
-   secret_key = "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" #keys.my-secret-key
+   access_key = "tt" # keys.my-access-key
+   secret_key = "tt/yGuKttsiMlM" #keys.my-secret-key
 }
 
 # creating resource block
